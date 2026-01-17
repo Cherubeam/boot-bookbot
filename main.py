@@ -1,3 +1,5 @@
+from stats import count_words
+
 def main():
   with open("books/frankenstein.txt") as f:
     file_contents = f.read()
@@ -5,7 +7,7 @@ def main():
     print("--- Begin report of books/frankenstein.txt ---")
 
     num_words = count_words(file_contents)
-    print(f"{num_words} words found in the document\n")
+    print(f"Found {num_words} total words\n")
 
     num_characters = count_characters(file_contents)
     for item in num_characters:
@@ -13,12 +15,10 @@ def main():
 
     print("--- End report ---")
 
-def count_words(text):
-  words = text.split()
-  return len(words)
 
 def sort_on(dict):
   return dict["count"]
+
 
 def count_characters(text):
   text = text.lower()
@@ -35,5 +35,6 @@ def count_characters(text):
   characters.sort(reverse=True, key=sort_on)
 
   return characters
+
 
 main()
