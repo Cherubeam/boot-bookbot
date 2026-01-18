@@ -4,7 +4,7 @@ from stats import count_words
 
 def main():
   if len(sys.argv) != 2:
-    print("Usage: python3 main.py <path_to_book")
+    print("Usage: python3 main.py <path_to_book>")
     sys.exit(1)
 
   with open(sys.argv[1]) as f:
@@ -17,7 +17,7 @@ def main():
 
     num_characters = count_characters(file_contents)
     for item in num_characters:
-      print(f"The '{item["character"]}' character was found {item["count"]} times")
+      print(f"'{item["character"]}: {item["count"]}'")
 
     print("--- End report ---")
 
